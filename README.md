@@ -3,9 +3,11 @@
 > The `shimmer-effects-react` library empowers React developers to effortlessly integrate customizable shimmer effects into their applications. With a versatile set of utilities and components, users can easily create shimmering placeholders for various UI elements, enhancing the user experience during loading states. Whether you're building a sleek loading animation for images, text blocks, or entire sections, this library offers the flexibility and control you need.
 
 
+<br/>
 
 ### [**Live Demo & Documentation**](https://shimmereffectreact.vercel.app/)
 
+<br/>
 
 
 # Install 
@@ -18,8 +20,9 @@ or
 yarn add shimmer-effects-react
 ```
 
+<br/><br/>
 
-### Key Features:
+# Key Features:
 
 + Customization: `shimmer-effects-react` to match your application's design language and branding. Adjust parameters such as color, height, width,border, rounded and more properties to achieve the desired shimmer effect.
 
@@ -31,8 +34,9 @@ yarn add shimmer-effects-react
 
 + Developer-Friendly: Simple intuitive component props make it easy for developers of all skill levels to incorporate shimmer effects into their React applications.
 
+<br/><br/>
 
-### Components Included:
+# Components Included:
 
 + [ShimmerButton](https://shimmereffectreact.vercel.app/details/shimmerbutton) : Add shimmer animations to buttons, signaling loading states and interactions.
 
@@ -44,8 +48,8 @@ yarn add shimmer-effects-react
 
 + [ShimmerSectionHeader](https://shimmereffectreact.vercel.app/details/shimmersectionheader): Construct shimmering placeholders for entire sections of your application, providing visual feedback during content loading.
 
+<br/><br/>
 
-
-### Contributions and Feedback:
+# Contributions and Feedback:
 
 We welcome contributions, bug reports, and feature requests from the community. Whether you're interested in submitting a pull request, reporting a bug, or sharing your ideas for enhancements, your input is invaluable in shaping the future of the `shimmer-effects-react` library. Thank you for your support and collaboration!
