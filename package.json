@@ -1,0 +1,58 @@
+{
+  "name": "shimmer-effects-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\""
+  },
+  "author": "Rana Hardik",
+  "license": "MIT",
+  "keywords": [
+    "shimmer",
+    "shimmer-effect",
+    "shimmer-typescript",
+    "shimmer-effect-typescript",
+    "custom-shimmer-effect",
+    "shimmer-react-ts",
+    "shimmer-next-ts",
+    "react-shimmer",
+    "next-shimmer",
+    "category-shimmer",
+    "table-shimmer",
+    "shimmer-content",
+    "shimmer-button",
+    "shimmer-div",
+    "shimmer-circular-image",
+    "shimmer-content-text",
+    "shimmer-title"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^9.1.1",
+    "@types/react": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "eslint": "^9.1.1",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "globals": "^15.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.8.0"
+  },
+  "dependencies": {
+    "styled-components": "^6.1.10"
+  }
+}
