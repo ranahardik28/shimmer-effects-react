@@ -48,6 +48,13 @@ yarn add shimmer-effects-react
 
 + [ShimmerSectionHeader](https://shimmereffectreact.vercel.app/details/shimmersectionheader): Construct shimmering placeholders for entire sections of your application, providing visual feedback during content loading.
 
+
+<br/><br/>
+
+# More Components Coming Soon:
+
+Stay tuned for exciting updates and expansions to the `shimmer-effects-react` library! Our team is hard at work developing additional components and features to further enhance your experience with shimmer effects in React applications. Keep an eye on our roadmap for upcoming releases, and be the first to explore new functionalities as they become available.
+
 <br/><br/>
 
 # Contributions and Feedback:
