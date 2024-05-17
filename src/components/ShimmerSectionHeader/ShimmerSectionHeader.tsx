@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react'
+import styled, { css } from 'styled-components'
 import ShimmerTitle from '../ShimmerTitle/ShimmerTitle';
 import ShimmerText from '../ShimmerText/ShimmerText';
 
@@ -37,7 +38,20 @@ type SectionHeaderProps =
 
 
 
+
+function gradientColors(props: SectionHeaderProps): [string, string, string] {
+
+    if (props.mode === "custom") {
+        return [props.from, props.via, props.to]
+    } else {
+        return ["", "", ""]
+    }
+
+}
+
 export default function ShimmerSectionHeader(props: SectionHeaderProps) {
+
+    let [from, via, to] = gradientColors(props);
 
     return (
 
@@ -59,7 +73,6 @@ export default function ShimmerSectionHeader(props: SectionHeaderProps) {
                             if (props.mode == "custom") {
                                 return <ShimmerTitle key={index} mode='custom' center={props.center} line={1} gap={props.titleGap} border={props.titleBorder} height={props.titleHeight} width={props.titleWidth?.[index]} rounded={props.titleRounded} from={props.from} via={props.via} to={props.to} />
                             }
-
                             return null
                         })
 
@@ -98,7 +111,6 @@ export default function ShimmerSectionHeader(props: SectionHeaderProps) {
                                 if (props.mode == "custom") {
                                     return <ShimmerTitle key={index} mode='custom' center={props.center} line={1} gap={props.titleGap} border={props.titleBorder} height={props.titleHeight} width={props.titleWidth?.[index]} rounded={props.titleRounded} from={props.from} via={props.via} to={props.to} />
                                 }
-
                                 return null
                             })
 
@@ -116,7 +128,6 @@ export default function ShimmerSectionHeader(props: SectionHeaderProps) {
                                 if (props.mode == "custom") {
                                     return <ShimmerText key={index} mode='custom' center={props.center} line={1} gap={props.subtitleGap} border={props.subtitleBorder} height={props.subtitleHeight} width={props.subtitleWidth?.[index]} rounded={props.subtitleRounded} from={props.from} via={props.via} to={props.to} />
                                 }
-
                                 return null
                             })
                         }

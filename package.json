@@ -1,6 +1,6 @@
 {
   "name": "shimmer-effects-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The shimmer-effects-react library empowers React developers to effortlessly integrate customizable shimmer effects into their applications. With a versatile set of utilities and components, users can easily create shimmering placeholders for various UI elements, enhancing the user experience during loading states. Whether you're building a sleek loading animation for images, text blocks, or entire sections, this library offers the flexibility and control you need",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",

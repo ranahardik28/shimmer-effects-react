@@ -5,8 +5,8 @@ import { shimmerAnimation } from '../ShimmerButton/ShimmerButton';
 
 type DivProps =
   {
-    height: number,
-    width: number,
+    height: number | string,
+    width: number | string,
     border?: number,
     rounded?: number,
     loading?: boolean,
@@ -81,23 +81,22 @@ const Div = styled.div<DivProps>`
   } 
 
     ${p => (p.height && p.width) && css`
-      height: ${p.height}px;
-      width: ${p.width}px;
+      height:${(typeof p.height == 'number') ? (p.height).toString() + "px"  : p.height };
+      width: ${(typeof p.width == 'number' ) ? (p.width).toString()+ "px": p.width};
      `
-  }
+  };
 
     ${p => p.border && css`
      border-width: ${p.border}px;
      `
-  }
+  };
 
     ${p => p.rounded && css`
      border-radius: ${p.rounded}em;
      `
-  }
+  };
     
-
-    background-size: 1000px 100%;
-    animation: ${shimmerAnimation} 4.2s linear infinite forwards;
+  background-size: 1000px 100%;
+  animation: ${shimmerAnimation} 4.2s linear infinite forwards;
 
 `;

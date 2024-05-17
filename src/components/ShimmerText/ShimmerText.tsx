@@ -1,5 +1,7 @@
+import { get } from 'http';
 import React, { ReactElement } from 'react'
 import styled, { css } from 'styled-components'
+import tw from "tailwind-styled-components"
 import { shimmerAnimation } from '../ShimmerButton/ShimmerButton';
 
 
@@ -136,6 +138,7 @@ const Text = styled.div<TextProps>`
     }
     
     background-size: 1000px 100%;
+    
     animation: ${shimmerAnimation} 4.2s linear infinite forwards;
 
 `;

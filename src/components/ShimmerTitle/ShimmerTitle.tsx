@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled, { css } from 'styled-components'
+import tw from "tailwind-styled-components"
 import { shimmerAnimation } from '../ShimmerButton/ShimmerButton';
 
 
@@ -108,38 +109,38 @@ const Title = styled.div<TitleProps>`
     ${p => p.mode == "light" && css`
         background: linear-gradient(to right, #cbd5e1 8%, #f1f5f9 18%, #cbd5e1 33%);
      `
-    }
+    };
 
     ${p => p.mode == "dark" && css`
         background: linear-gradient(to right, #374151 8%, #6b7280 18%, #374151 33%);
      `
-    }  
+    };
 
     ${p => p.mode == "custom" && css`
         background: linear-gradient(to right, ${p.from} 8%, ${p.via}  18%, ${p.to}  33%);
      `
-    } 
+    }; 
 
     ${p => (p.height && p.width) && css`
       height: ${p.height}px;
       width: ${p.width}%;
      `
-    }
+    };
 
     ${p => p.border && css`
      border-width: ${p.border}px;
      `
-    }
+    };
 
     ${p => p.rounded && css`
      border-radius: ${p.rounded}em;
      `
-    }
+    };
 
     ${p => p.gap && css`
      margin-bottom: ${p.gap}px;
      `
-    }
+    };
     
     background-size: 1000px 100%;
     animation: ${shimmerAnimation} 4.2s linear infinite forwards;
