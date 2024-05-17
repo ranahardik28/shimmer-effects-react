@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
 import styled, { css } from 'styled-components'
-import tw from "tailwind-styled-components"
 import { shimmerAnimation } from '../ShimmerButton/ShimmerButton';
 
 

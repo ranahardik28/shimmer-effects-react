@@ -1,6 +1,6 @@
 {
   "name": "shimmer-effects-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The shimmer-effects-react library empowers React developers to effortlessly integrate customizable shimmer effects into their applications. With a versatile set of utilities and components, users can easily create shimmering placeholders for various UI elements, enhancing the user experience during loading states. Whether you're building a sleek loading animation for images, text blocks, or entire sections, this library offers the flexibility and control you need",
   "main": "dist/index.js",
   "types": "./dist/index.d.ts",
@@ -27,6 +27,9 @@
     "shimmer-effect-typescript",
     "custom-shimmer-effect",
     "shimmer-react-ts",
+    "shimmer-effects-react",
+    "react-shimmer-effect",
+    "react-shimmer-effects",
     "shimmer-next-ts",
     "react-shimmer",
     "next-shimmer",
@@ -37,7 +40,12 @@
     "shimmer-div",
     "shimmer-circular-image",
     "shimmer-content-text",
-    "shimmer-title"
+    "shimmer-title",
+    "shimmer-content-block",
+    "shimmer-section-header",
+    "shimmer-category-items",
+    "shimmer-barchart",
+    "shimmer-table"
   ],
   "devDependencies": {
     "@eslint/js": "^9.1.1",

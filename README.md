@@ -48,6 +48,14 @@ yarn add shimmer-effects-react
 
 + [ShimmerSectionHeader](https://shimmereffectreact.vercel.app/details/shimmersectionheader): Construct shimmering placeholders for entire sections of your application, providing visual feedback during content loading.
 
++ [ShimmerCategoryItems](https://shimmereffectreact.vercel.app/components/shimmercategoryitems):  Create dynamic shimmering placeholders for category-based sections within your application. Ideal for e-commerce sites, content management systems, and any interface where categorization plays a key role. Enhance user experience by providing visual cues during data fetching.
+
++ [ShimmerContentBlock](https://shimmereffectreact.vercel.app/components/shimmercontentblock):  Implement versatile shimmering placeholders for various content blocks in your application. Perfect for blogs, news websites, and dashboards, ensuring a seamless user experience by indicating content loading status.
+
++ [ShimmerTable](https://shimmereffectreact.vercel.app/components/shimmertable): Introduce shimmering placeholders specifically designed for tables and data grids. This component is essential for applications that rely on tabular data, such as administrative panels, reporting tools, and inventory systems, providing clear loading indicators.
+
++ [ShimmerBarChart](https://shimmereffectreact.vercel.app/components/shimmerbarchart): Deploy shimmering placeholders tailored for bar charts and data visualizations. Ideal for analytics dashboards, financial tools, and performance monitoring systems, these placeholders keep users informed about data processing stages while maintaining visual engagement.
+
 
 <br/><br/>
 

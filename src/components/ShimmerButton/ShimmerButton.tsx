@@ -1,34 +1,5 @@
-import { Metadata } from 'next';
 import React, { ReactElement } from 'react'
 import styled, { css, keyframes } from 'styled-components';
-
-export const metadata: Metadata = {
-    title: 'Shimmer Button',
-    description: "The shimmer-effects-react library empowers React developers to effortlessly integrate customizable shimmer effects into their applications. With a versatile set of utilities and components, users can easily create shimmering placeholders for various UI elements, enhancing the user experience during loading states. Whether you're building a sleek loading animation for images, text blocks, or entire sections, this library offers the flexibility and control you need",
-    authors: [{ name: "Rana Hardik", url: "https://github.com/ranahardik28" }],
-    keywords: [
-      "shimmer",
-      "shimmer-effect",
-      "shimmer-typescript",
-      "shimmer-effect-typescript",
-      "custom-shimmer-effect",
-      "shimmer-react-ts",
-      "shimmer-next-ts",
-      "react-shimmer",
-      "next-shimmer",
-      "category-shimmer",
-      "table-shimmer",
-      "shimmer-content",
-      "shimmer-button",
-      "shimmer-div",
-      "shimmer-circular-image",
-      "shimmer-content-text",
-      "shimmer-title"
-    ],
-    verification:{google:"8mnYitOBx5i8VX5M0BTpAFLxPZW4W8hlzLNZ-eJ0Eu8"}
-  
-  }
-
 
 type ButtonProps =
     {

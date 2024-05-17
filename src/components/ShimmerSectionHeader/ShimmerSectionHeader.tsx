@@ -1,5 +1,4 @@
 import React, { ReactElement } from 'react'
-import styled, { css } from 'styled-components'
 import ShimmerTitle from '../ShimmerTitle/ShimmerTitle';
 import ShimmerText from '../ShimmerText/ShimmerText';
 
@@ -71,7 +70,7 @@ export default function ShimmerSectionHeader(props: SectionHeaderProps) {
                                 return <ShimmerTitle key={index} mode='dark' center={props.center} line={1} gap={props.titleGap} border={props.titleBorder} height={props.titleHeight} width={props.titleWidth?.[index]} rounded={props.titleRounded} />
                             }
                             if (props.mode == "custom") {
-                                return <ShimmerTitle key={index} mode='custom' center={props.center} line={1} gap={props.titleGap} border={props.titleBorder} height={props.titleHeight} width={props.titleWidth?.[index]} rounded={props.titleRounded} from={props.from} via={props.via} to={props.to} />
+                                return <ShimmerTitle key={index} mode='custom' center={props.center} line={1} gap={props.titleGap} border={props.titleBorder} height={props.titleHeight} width={props.titleWidth?.[index]} rounded={props.titleRounded} from={from} via={via} to={to} />
                             }
                             return null
                         })
@@ -88,7 +87,7 @@ export default function ShimmerSectionHeader(props: SectionHeaderProps) {
                                 return <ShimmerText key={index} mode='dark' center={props.center} line={1} gap={props.subtitleGap} border={props.subtitleBorder} height={props.subtitleHeight} width={props.subtitleWidth?.[index]} rounded={props.subtitleRounded} />
                             }
                             if (props.mode == "custom") {
-                                return <ShimmerText key={index} mode='custom' center={props.center} line={1} gap={props.subtitleGap} border={props.subtitleBorder} height={props.subtitleHeight} width={props.subtitleWidth?.[index]} rounded={props.subtitleRounded} from={props.from} via={props.via} to={props.to} />
+                                return <ShimmerText key={index} mode='custom' center={props.center} line={1} gap={props.subtitleGap} border={props.subtitleBorder} height={props.subtitleHeight} width={props.subtitleWidth?.[index]} rounded={props.subtitleRounded} from={from} via={via} to={to} />
                             }
                             return null
                         })
