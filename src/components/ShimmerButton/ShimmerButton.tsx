@@ -9,7 +9,8 @@ type ButtonProps =
         border?: number,
         rounded?: number,
         loading?: boolean,
-        children?: ReactElement
+        children?: ReactElement,
+        className?:string
     } &
     (
         {
@@ -82,11 +83,11 @@ export default function ShimmerButton(props: ButtonProps) {
     return (
         <>
             {
-                (props.loading && !props.children) && <Button size={csize} mode={props.mode} height={cheight} width={cwidth} border={props.border} rounded={props.rounded} from={from} via={via} to={to} />
+                (props.loading && !props.children) && <Button className={props.className} size={csize} mode={props.mode} height={cheight} width={cwidth} border={props.border} rounded={props.rounded} from={from} via={via} to={to} />
             }
 
             {
-                (props.loading && props.children) ? <Button size={csize} mode={props.mode} height={cheight} width={cwidth} border={props.border} rounded={props.rounded} from={from} via={via} to={to} /> : props.children
+                (props.loading && props.children) ? <Button className={props.className} size={csize} mode={props.mode} height={cheight} width={cwidth} border={props.border} rounded={props.rounded} from={from} via={via} to={to} /> : props.children
             }
         </>
 
@@ -96,7 +97,8 @@ export default function ShimmerButton(props: ButtonProps) {
 ShimmerButton.defaultProps = {
     border: 1,
     rounded: 0.1,
-    loading: true
+    loading: true,
+    className: "shimmer-button"
 }
 
 

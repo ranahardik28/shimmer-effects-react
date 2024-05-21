@@ -13,7 +13,8 @@ type TitleProps =
         gap: number,
         loading?: boolean,
         children?: ReactElement,
-        center?:boolean
+        center?:boolean,
+        className?:string
     } &
     (
         {
@@ -67,12 +68,12 @@ export default function ShimmerTitle(props: TitleProps) {
 
     return (
 
-        <div style={{display:"grid" ,placeItems:props.center ? "center" : "start"}}>
+        <div className={props.className} style={{display:"grid" ,placeItems:props.center ? "center" : "start"}}>
             {
                 (props.loading && !props.children) &&
                 Array.from({ length: props.line }).map((_, index) => {
 
-                    return <Title key={index} mode={props.mode} height={props.height} width={getWidth(index,props.line,props.width)} border={props.border} rounded={props.rounded} line={props.line} gap={props.gap} from={from} via={via} to={to} />
+                    return <Title className={`shimmer-title-line-${index}`} key={index} mode={props.mode} height={props.height} width={getWidth(index,props.line,props.width)} border={props.border} rounded={props.rounded} line={props.line} gap={props.gap} from={from} via={via} to={to} />
                 })
             }
 
@@ -80,7 +81,7 @@ export default function ShimmerTitle(props: TitleProps) {
                 (props.loading && props.children) ?
                     Array.from({ length: props.line }).map((_, index) => {
 
-                        return <Title key={index} mode={props.mode} height={props.height} width={getWidth(index,props.line,props.width)} border={props.border} rounded={props.rounded} line={props.line} gap={props.gap} from={from} via={via} to={to} />
+                        return <Title className={`shimmer-title-line-${index}`} key={index} mode={props.mode} height={props.height} width={getWidth(index,props.line,props.width)} border={props.border} rounded={props.rounded} line={props.line} gap={props.gap} from={from} via={via} to={to} />
                     })
                     : props.children
             }
@@ -97,7 +98,8 @@ ShimmerTitle.defaultProps = {
     rounded: 1,
     gap: 8,
     loading:true,
-    center:false
+    center:false,
+    className: 'shimmer-title-div'
 }
 
 

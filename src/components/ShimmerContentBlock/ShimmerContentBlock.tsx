@@ -17,20 +17,21 @@ type ShimmerContentBlockProps = {
   thumbnailRounded?: number;
   contentDetailsPosition?: "center" | "start" | "end";
   contentDetailTextLines?: number;
+  className?: string;
 } & (
-  | {
+    | {
       mode: "light";
     }
-  | {
+    | {
       mode: "dark";
     }
-  | {
+    | {
       mode: "custom";
       from: string;
       via: string;
       to: string;
     }
-);
+  );
 
 function gradientColors(
   props: ShimmerContentBlockProps
@@ -42,16 +43,17 @@ function gradientColors(
   }
 }
 
-export default function ShimmerContentBlock  (props: ShimmerContentBlockProps) {
+export default function ShimmerContentBlock(props: ShimmerContentBlockProps) {
   let [from, via, to] = gradientColors(props);
 
   return (
-    <div>
+    <div className="shimmer-content-block-main-div">
       {props.loading &&
         !props.children &&
         Array.from({ length: props.items! }).map((_, index) => {
           return (
             <ShimmerContent
+              className={props.className}
               key={index}
               mode={props.mode}
               rounded={props.rounded}
@@ -59,6 +61,7 @@ export default function ShimmerContentBlock  (props: ShimmerContentBlockProps) {
               itemsGap={props.itemsGap}
             >
               <ShimmerDiv
+                className="shimmer-content-block-thumbnail"
                 mode={props.mode}
                 height={props.thumbnailHeight!}
                 width={props.thumbnailWidth!}
@@ -69,10 +72,12 @@ export default function ShimmerContentBlock  (props: ShimmerContentBlockProps) {
                 to={to}
               />
               <ShimmerContentDetails
+                className="shimmer-content-block-details"
                 contentDetailsPosition={props.contentDetailsPosition}
                 thumbnailWidth={props.thumbnailWidth}
               >
                 <ShimmerTitle
+                  className="shimmer-content-block-details-title-div"
                   mode={props.mode}
                   width={20}
                   height={20}
@@ -82,6 +87,7 @@ export default function ShimmerContentBlock  (props: ShimmerContentBlockProps) {
                   to={to}
                 />
                 <ShimmerText
+                  className="shimmer-content-block-details-text-div"
                   mode={props.mode}
                   line={props.contentDetailTextLines!}
                   gap={8}
@@ -90,6 +96,7 @@ export default function ShimmerContentBlock  (props: ShimmerContentBlockProps) {
                   to={to}
                 />
                 <ShimmerButton
+                  className="shimmer-content-block-details-button"
                   size="sm"
                   mode={props.mode}
                   rounded={0.4}
@@ -104,56 +111,62 @@ export default function ShimmerContentBlock  (props: ShimmerContentBlockProps) {
 
       {props.loading && props.children
         ? Array.from({ length: props.items! }).map((_, index) => {
-            return (
-              <ShimmerContent
-                key={index}
+          return (
+            <ShimmerContent
+              className={props.className}
+              key={index}
+              mode={props.mode}
+              rounded={props.rounded}
+              from={from}
+            >
+              <ShimmerDiv
+                className="shimmer-content-block-thumbnail"
                 mode={props.mode}
-                rounded={props.rounded}
+                height={props.thumbnailHeight!}
+                width={props.thumbnailWidth!}
+                border={props.thumbnailBorder}
+                rounded={props.thumbnailRounded}
                 from={from}
+                via={via}
+                to={to}
+              />
+              <ShimmerContentDetails
+                className="shimmer-content-block-details"
+                contentDetailsPosition={props.contentDetailsPosition}
+                thumbnailWidth={props.thumbnailWidth}
               >
-                <ShimmerDiv
+                <ShimmerTitle
+                  className="shimmer-content-block-details-title-div"
                   mode={props.mode}
-                  height={props.thumbnailHeight!}
-                  width={props.thumbnailWidth!}
-                  border={props.thumbnailBorder}
-                  rounded={props.thumbnailRounded}
+                  width={20}
+                  height={20}
+                  line={1}
                   from={from}
                   via={via}
                   to={to}
                 />
-                <ShimmerContentDetails
-                  contentDetailsPosition={props.contentDetailsPosition}
-                  thumbnailWidth={props.thumbnailWidth}
-                >
-                  <ShimmerTitle
-                    mode={props.mode}
-                    width={20}
-                    height={20}
-                    line={1}
-                    from={from}
-                    via={via}
-                    to={to}
-                  />
-                  <ShimmerText
-                    mode={props.mode}
-                    line={props.contentDetailTextLines!}
-                    gap={8}
-                    from={from}
-                    via={via}
-                    to={to}
-                  />
-                  <ShimmerButton
-                    size="sm"
-                    mode={props.mode}
-                    rounded={0.4}
-                    from={from}
-                    via={via}
-                    to={to}
-                  ></ShimmerButton>
-                </ShimmerContentDetails>
-              </ShimmerContent>
-            );
-          })
+                <ShimmerText
+                  className="shimmer-content-block-details-text-div"
+                  mode={props.mode}
+                  line={props.contentDetailTextLines!}
+                  gap={8}
+                  from={from}
+                  via={via}
+                  to={to}
+                />
+                <ShimmerButton
+                  className="shimmer-content-block-details-button"
+                  size="sm"
+                  mode={props.mode}
+                  rounded={0.4}
+                  from={from}
+                  via={via}
+                  to={to}
+                ></ShimmerButton>
+              </ShimmerContentDetails>
+            </ShimmerContent>
+          );
+        })
         : props.children}
     </div>
   );
@@ -170,6 +183,7 @@ ShimmerContentBlock.defaultProps = {
   thumbnailRounded: 1,
   contentDetailsPosition: "start",
   contentDetailTextLines: 6,
+  className: "shimmer-content-block"
 };
 
 const ShimmerContent = styled.div<

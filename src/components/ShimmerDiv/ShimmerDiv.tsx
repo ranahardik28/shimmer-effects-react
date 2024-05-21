@@ -10,7 +10,8 @@ type DivProps =
     border?: number,
     rounded?: number,
     loading?: boolean,
-    children?: ReactElement
+    children?: ReactElement,
+    className?:string
   } &
   (
     {
@@ -44,11 +45,11 @@ export default function ShimmerDiv(props: DivProps) {
 
     <>
       {
-        (props.loading && !props.children) && <Div mode={props.mode} height={props.height} width={props.width} border={props.border} rounded={props.rounded} from={from} via={via} to={to} />
+        (props.loading && !props.children) && <Div className={props.className} mode={props.mode} height={props.height} width={props.width} border={props.border} rounded={props.rounded} from={from} via={via} to={to} />
       }
 
       {
-        (props.loading && props.children) ? <Div mode={props.mode} height={props.height} width={props.width} border={props.border} rounded={props.rounded} from={from} via={via} to={to} /> : props.children
+        (props.loading && props.children) ? <Div className={props.className} mode={props.mode} height={props.height} width={props.width} border={props.border} rounded={props.rounded} from={from} via={via} to={to} /> : props.children
       }
     </>
 
@@ -58,7 +59,8 @@ export default function ShimmerDiv(props: DivProps) {
 ShimmerDiv.defaultProps = {
   border: 1,
   rounded: 0.1,
-  loading: true
+  loading: true,
+  className:"shimmer-div"
 }
 
 
