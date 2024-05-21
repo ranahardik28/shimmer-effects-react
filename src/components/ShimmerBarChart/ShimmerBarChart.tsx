@@ -8,7 +8,8 @@ type ChartProps =
         barWidth?: number | string,
         chartType: "linear" | "random"
         loading?: boolean,
-        children?: ReactElement
+        children?: ReactElement,
+        className?: string
     } &
     (
         {
@@ -51,42 +52,42 @@ export default function ShimmerBarChart(props: ChartProps) {
         <>
             {
                 (props.loading && !props.children)
-                && <BarChart >
-                    <BarChartYAxis  >
-                        <BarChartYAxisLine chartType={props.chartType} mode={props.mode} from={""} via={""} to={""} lineColor={(props.mode == "custom") ? props.lineColor : ""} />
+                && <BarChart className={`shimmer-bar-chart ${props.className ? props.className : ""}`}>
+                    <BarChartYAxis className="shimmer-bar-chart-y-axis" >
+                        <BarChartYAxisLine className="shimmer-bar-chart-y-axis-line" chartType={props.chartType} mode={props.mode} from={""} via={""} to={""} lineColor={(props.mode == "custom") ? props.lineColor : ""} />
                     </BarChartYAxis>
-                    <BarArea >
+                    <BarArea className="shimmer-bar-area">
 
                         {
                             Array.from({ length: 11 }).map((_, index) => {
                                 let height = props.chartType == "linear" ? (index == 0) ? `${5}%` : `${index * 10}%` : `${getRandomInt(1, 100)}%`;
-                                return <Bar key={index} mode={props.mode} height={height} width={props.barWidth} from={from} via={via} to={to} />
+                                return <Bar className={`shimmer-bar-${index}`} key={index} mode={props.mode} height={height} width={props.barWidth} from={from} via={via} to={to} />
                             })
                         }
 
                     </BarArea>
-                    <BarChartXAxis chartType={props.chartType} mode={props.mode} from={""} via={""} to={""} lineColor={(props.mode == "custom") ? props.lineColor : ""} />
+                    <BarChartXAxis className="shimmer-bar-chart-x-axis-line" chartType={props.chartType} mode={props.mode} from={""} via={""} to={""} lineColor={(props.mode == "custom") ? props.lineColor : ""} />
 
                 </BarChart>
             }
 
             {
                 (props.loading && props.children)
-                    ? <BarChart >
-                        <BarChartYAxis  >
-                            <BarChartYAxisLine chartType={props.chartType} mode={props.mode} from={""} via={""} to={""} lineColor={(props.mode == "custom") ? props.lineColor : ""} />
+                    ? <BarChart className="shimmer-bar-chart" >
+                        <BarChartYAxis className="shimmer-bar-chart-y-axis" >
+                            <BarChartYAxisLine className="shimmer-bar-chart-y-axis-line" chartType={props.chartType} mode={props.mode} from={""} via={""} to={""} lineColor={(props.mode == "custom") ? props.lineColor : ""} />
                         </BarChartYAxis>
-                        <BarArea >
+                        <BarArea className="shimmer-bar-area">
 
                             {
                                 Array.from({ length: 11 }).map((_, index) => {
                                     let height = props.chartType == "linear" ? (index == 0) ? `${5}%` : `${index * 10}%` : `${getRandomInt(1, 100)}%`;
-                                    return <Bar key={index} mode={props.mode} height={height} width={props.barWidth} from={from} via={via} to={to} />
+                                    return <Bar className={`shimmer-bar-${index}`} key={index} mode={props.mode} height={height} width={props.barWidth} from={from} via={via} to={to} />
                                 })
                             }
 
                         </BarArea>
-                        <BarChartXAxis chartType={props.chartType} mode={props.mode} from={""} via={""} to={""} lineColor={(props.mode == "custom") ? props.lineColor : ""} />
+                        <BarChartXAxis className="shimmer-bar-chart-x-axis-line" chartType={props.chartType} mode={props.mode} from={""} via={""} to={""} lineColor={(props.mode == "custom") ? props.lineColor : ""} />
 
                     </BarChart>
                     : props.children

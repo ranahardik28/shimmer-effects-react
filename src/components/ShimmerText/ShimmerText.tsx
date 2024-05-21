@@ -13,7 +13,8 @@ type TextProps =
         gap: number,
         loading?: boolean,
         children?: ReactElement,
-        center?: boolean
+        center?: boolean,
+        className?: string
     } &
     (
         {
@@ -65,12 +66,12 @@ export default function ShimmerText(props: TextProps) {
 
     return (
 
-        <div style={{ display: "grid", placeItems: props.center ? "center" : "start" }}>
+        <div className={props.className} style={{ display: "grid", placeItems: props.center ? "center" : "start" }}>
             {
                 (props.loading && !props.children) &&
                 Array.from({ length: props.line }).map((_, index) => {
 
-                    return <Text key={index} mode={props.mode} height={props.height} width={getWidth(index, props.line, props.width)} border={props.border} rounded={props.rounded} line={props.line} gap={props.gap} from={from} via={via} to={to} />
+                    return <Text className={`shimmer-text-line-${index}`} key={index} mode={props.mode} height={props.height} width={getWidth(index, props.line, props.width)} border={props.border} rounded={props.rounded} line={props.line} gap={props.gap} from={from} via={via} to={to} />
                 })
             }
 
@@ -78,7 +79,7 @@ export default function ShimmerText(props: TextProps) {
                 (props.loading && props.children) ?
                     Array.from({ length: props.line }).map((_, index) => {
 
-                        return <Text key={index} mode={props.mode} height={props.height} width={getWidth(index, props.line, props.width)} border={props.border} rounded={props.rounded} line={props.line} gap={props.gap} from={from} via={via} to={to} />
+                        return <Text className={`shimmer-text-line-${index}`} key={index} mode={props.mode} height={props.height} width={getWidth(index, props.line, props.width)} border={props.border} rounded={props.rounded} line={props.line} gap={props.gap} from={from} via={via} to={to} />
                     })
                     : props.children
             }
@@ -94,7 +95,8 @@ ShimmerText.defaultProps = {
     rounded: 1,
     gap: 6,
     loading: true,
-    center: false
+    center: false,
+    className:'shimmer-text-div'
 }
 
 const Text = styled.div<TextProps>`
@@ -133,7 +135,7 @@ const Text = styled.div<TextProps>`
     ${p => p.gap && css`
      margin-bottom: ${p.gap}px;
      `
-    }
+    };
     
     background-size: 1000px 100%;
     

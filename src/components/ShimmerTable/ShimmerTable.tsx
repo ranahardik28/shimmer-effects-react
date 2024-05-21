@@ -12,20 +12,21 @@ type TableProps = {
   colPadding?: number[];
   loading?: boolean;
   children?: ReactElement;
+  className?: string;
 } & (
-  | {
+    | {
       mode: "light";
     }
-  | {
+    | {
       mode: "dark";
     }
-  | {
+    | {
       mode: "custom";
       from: string;
       via: string;
       to: string;
     }
-);
+  );
 
 function gradientColors(props: TableProps): [string, string, string] {
   if (props.mode === "custom") {
@@ -35,20 +36,21 @@ function gradientColors(props: TableProps): [string, string, string] {
   }
 }
 
-export default function ShimmerTable (props: TableProps) {
+export default function ShimmerTable(props: TableProps) {
   let [from, via, to] = gradientColors(props);
 
   return (
-    <div>
+    <div className="shimmer-table-main-div">
       {props.loading && !props.children && (
-        <Table rowGap={props.rowGap}>
-          {Array.from({ length: props.row }).map((_, index) => {
+        <Table className="shimmer-table" rowGap={props.rowGap}>
+          {Array.from({ length: props.row }).map((_, rindex) => {
             return (
-              <TableRows key={index}>
-                {Array.from({ length: props.col }).map((_, index) => {
+              <TableRows className={`shimmer-table-row-${rindex}`} key={rindex}>
+                {Array.from({ length: props.col }).map((_, cindex) => {
                   return (
                     <TableCols
-                      key={index}
+                      className={`shimmer-table-row-${rindex}-col-${cindex}`}
+                      key={cindex}
                       mode={props.mode}
                       border={props.border}
                       borderColor={props.borderColor}
@@ -57,6 +59,7 @@ export default function ShimmerTable (props: TableProps) {
                       from={from}
                     >
                       <ShimmerText
+                        className={`shimmer-table-row-${rindex}-col-${cindex}-text-div`}
                         mode={props.mode}
                         line={1}
                         gap={0}
@@ -75,14 +78,15 @@ export default function ShimmerTable (props: TableProps) {
       )}
 
       {props.loading && props.children ? (
-        <Table rowGap={props.rowGap}>
-          {Array.from({ length: props.row }).map((_, index) => {
+        <Table className="shimmer-table" rowGap={props.rowGap}>
+          {Array.from({ length: props.row }).map((_, rindex) => {
             return (
-              <TableRows key={index}>
-                {Array.from({ length: props.col }).map((_, index) => {
+              <TableRows className={`shimmer-table-row-${rindex}`} key={rindex}>
+                {Array.from({ length: props.col }).map((_, cindex) => {
                   return (
                     <TableCols
-                      key={index}
+                      className={`shimmer-table-row-${rindex}-col-${cindex}`}
+                      key={cindex}
                       mode={props.mode}
                       border={props.border}
                       borderColor={props.borderColor}
@@ -91,6 +95,7 @@ export default function ShimmerTable (props: TableProps) {
                       from={from}
                     >
                       <ShimmerText
+                        className={`shimmer-table-row-${rindex}-col-${cindex}-text-div`}
                         mode={props.mode}
                         line={1}
                         gap={0}
@@ -119,6 +124,7 @@ ShimmerTable.defaultProps = {
   loading: true,
   rowGap: 14,
   colPadding: [10, 5, 10, 5],
+  className: "shimmer-table"
 };
 
 const Table = styled.table<Pick<TableProps, "rowGap">>`

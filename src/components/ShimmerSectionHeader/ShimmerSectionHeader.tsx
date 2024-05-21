@@ -19,7 +19,8 @@ type SectionHeaderProps =
         subtitleGap: number,
         center?: boolean,
         loading?: boolean,
-        children?: ReactElement
+        children?: ReactElement,
+        className?: string
     } &
     (
         {
@@ -54,8 +55,7 @@ export default function ShimmerSectionHeader(props: SectionHeaderProps) {
 
     return (
 
-        <div>
-
+        <div className={props.className}>
 
             {
                 (props.loading && !props.children) &&
@@ -63,16 +63,9 @@ export default function ShimmerSectionHeader(props: SectionHeaderProps) {
                     {
 
                         Array.from({ length: props.titleLine! }).map((_, index) => {
-                            if (props.mode == "light") {
-                                return <ShimmerTitle key={index} mode='light' center={props.center} line={1} gap={props.titleGap} border={props.titleBorder} height={props.titleHeight} width={props.titleWidth?.[index]} rounded={props.titleRounded} />
-                            }
-                            if (props.mode == "dark") {
-                                return <ShimmerTitle key={index} mode='dark' center={props.center} line={1} gap={props.titleGap} border={props.titleBorder} height={props.titleHeight} width={props.titleWidth?.[index]} rounded={props.titleRounded} />
-                            }
-                            if (props.mode == "custom") {
-                                return <ShimmerTitle key={index} mode='custom' center={props.center} line={1} gap={props.titleGap} border={props.titleBorder} height={props.titleHeight} width={props.titleWidth?.[index]} rounded={props.titleRounded} from={from} via={via} to={to} />
-                            }
-                            return null
+
+                            return <ShimmerTitle className={"shimmer-section-header-title-div"} key={index} mode={props.mode} center={props.center} line={1} gap={props.titleGap} border={props.titleBorder} height={props.titleHeight} width={props.titleWidth?.[index]} rounded={props.titleRounded} from={from} via={via} to={to} />
+
                         })
 
                     }
@@ -80,16 +73,8 @@ export default function ShimmerSectionHeader(props: SectionHeaderProps) {
 
                         Array.from({ length: props.subtitleLine! }).map((_, index) => {
 
-                            if (props.mode == "light") {
-                                return <ShimmerText key={index} mode='light' center={props.center} line={1} gap={props.subtitleGap} border={props.subtitleBorder} height={props.subtitleHeight} width={props.subtitleWidth?.[index]} rounded={props.subtitleRounded} />
-                            }
-                            if (props.mode == "dark") {
-                                return <ShimmerText key={index} mode='dark' center={props.center} line={1} gap={props.subtitleGap} border={props.subtitleBorder} height={props.subtitleHeight} width={props.subtitleWidth?.[index]} rounded={props.subtitleRounded} />
-                            }
-                            if (props.mode == "custom") {
-                                return <ShimmerText key={index} mode='custom' center={props.center} line={1} gap={props.subtitleGap} border={props.subtitleBorder} height={props.subtitleHeight} width={props.subtitleWidth?.[index]} rounded={props.subtitleRounded} from={from} via={via} to={to} />
-                            }
-                            return null
+                            return <ShimmerText className={"shimmer-section-header-text-div"} key={index} mode={props.mode} center={props.center} line={1} gap={props.subtitleGap} border={props.subtitleBorder} height={props.subtitleHeight} width={props.subtitleWidth?.[index]} rounded={props.subtitleRounded} from={from} via={via} to={to} />
+
                         })
                     }
                 </>
@@ -101,16 +86,9 @@ export default function ShimmerSectionHeader(props: SectionHeaderProps) {
                         {
 
                             Array.from({ length: props.titleLine! }).map((_, index) => {
-                                if (props.mode == "light") {
-                                    return <ShimmerTitle key={index} mode='light' center={props.center} line={1} gap={props.titleGap} border={props.titleBorder} height={props.titleHeight} width={props.titleWidth?.[index]} rounded={props.titleRounded} />
-                                }
-                                if (props.mode == "dark") {
-                                    return <ShimmerTitle key={index} mode='dark' center={props.center} line={1} gap={props.titleGap} border={props.titleBorder} height={props.titleHeight} width={props.titleWidth?.[index]} rounded={props.titleRounded} />
-                                }
-                                if (props.mode == "custom") {
-                                    return <ShimmerTitle key={index} mode='custom' center={props.center} line={1} gap={props.titleGap} border={props.titleBorder} height={props.titleHeight} width={props.titleWidth?.[index]} rounded={props.titleRounded} from={props.from} via={props.via} to={props.to} />
-                                }
-                                return null
+
+                                return <ShimmerTitle className={"shimmer-section-header-title-div"} key={index} mode={props.mode} center={props.center} line={1} gap={props.titleGap} border={props.titleBorder} height={props.titleHeight} width={props.titleWidth?.[index]} rounded={props.titleRounded} from={from} via={via} to={to} />
+
                             })
 
                         }
@@ -118,16 +96,9 @@ export default function ShimmerSectionHeader(props: SectionHeaderProps) {
 
                             Array.from({ length: props.subtitleLine! }).map((_, index) => {
 
-                                if (props.mode == "light") {
-                                    return <ShimmerText key={index} mode='light' center={props.center} line={1} gap={props.subtitleGap} border={props.subtitleBorder} height={props.subtitleHeight} width={props.subtitleWidth?.[index]} rounded={props.subtitleRounded} />
-                                }
-                                if (props.mode == "dark") {
-                                    return <ShimmerText key={index} mode='dark' center={props.center} line={1} gap={props.subtitleGap} border={props.subtitleBorder} height={props.subtitleHeight} width={props.subtitleWidth?.[index]} rounded={props.subtitleRounded} />
-                                }
-                                if (props.mode == "custom") {
-                                    return <ShimmerText key={index} mode='custom' center={props.center} line={1} gap={props.subtitleGap} border={props.subtitleBorder} height={props.subtitleHeight} width={props.subtitleWidth?.[index]} rounded={props.subtitleRounded} from={props.from} via={props.via} to={props.to} />
-                                }
-                                return null
+
+                                return <ShimmerText className={"shimmer-section-header-text-div"} key={index} mode={props.mode} center={props.center} line={1} gap={props.subtitleGap} border={props.subtitleBorder} height={props.subtitleHeight} width={props.subtitleWidth?.[index]} rounded={props.subtitleRounded} from={from} via={via} to={to} />
+
                             })
                         }
                     </>
@@ -157,7 +128,8 @@ ShimmerSectionHeader.defaultProps = {
     titleGap: 8,
     subtitleGap: 6,
     loading: true,
-    center: false
+    center: false,
+    className: 'shimmer-section-header'
 }
 
 

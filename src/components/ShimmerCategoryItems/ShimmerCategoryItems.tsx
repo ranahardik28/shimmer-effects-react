@@ -18,7 +18,8 @@ type CategoryItemProps =
         hasImage?: boolean,
         contentPosition?: "start" | "center" | "end"
         loading?: boolean,
-        children?: ReactElement
+        children?: ReactElement,
+        className?: string
     } &
     (
         {
@@ -53,29 +54,29 @@ export default function ShimmerCategoryItems(props: CategoryItemProps) {
 
     let [from, via, to] = gradientColors(props);
 
-    return <div>
+    return <div className="shimmer-category-items-main-div">
         {
             (props.loading && !props.children) &&
             Array.from({ length: props.items! }).map((_,index) => {
                 return <>
-                    <CategoryItemDiv key={index} itemGap={props.itemGap}>
+                    <CategoryItemDiv className={props.className} key={index} itemGap={props.itemGap}>
                         {
                             props.hasImage &&
-                            <ShimmerDiv mode={props.mode} height={props.imageHeight!} width={props.imageWidth!} rounded={props.imageRounded} from={from} via={via} to={to} />
+                            <ShimmerDiv className={"shimmer-category-items-image "} mode={props.mode} height={props.imageHeight!} width={props.imageWidth!} rounded={props.imageRounded} from={from} via={via} to={to} />
                         }
-                        <CategoryItemDetails contentPosition={props.contentPosition}>
+                        <CategoryItemDetails className="shimmer-category-items-details" contentPosition={props.contentPosition}>
                             {
                                 props.hasTitle &&
-                                <ShimmerTitle mode={props.mode} line={1} gap={6} height={13} from={from} via={via} to={to} />
+                                <ShimmerTitle className={"shimmer-category-items-title-div"} mode={props.mode} line={1} gap={6} height={13} from={from} via={via} to={to} />
                             }
                             {
                                 props.hasText &&
-                                <ShimmerText mode={props.mode} line={3} gap={6} height={5} from={from} via={via} to={to} />
+                                <ShimmerText className={"shimmer-category-items-text-div"} mode={props.mode} line={3} gap={6} height={5} from={from} via={via} to={to} />
                             }
 
                             {
                                 props.hasButton &&
-                                <ShimmerButton mode={props.mode} size='sm' from={from} via={via} to={to} />
+                                <ShimmerButton className={"shimmer-category-items-button"} mode={props.mode} size='sm' from={from} via={via} to={to} />
                             }
                         </CategoryItemDetails>
                     </CategoryItemDiv>
@@ -87,24 +88,24 @@ export default function ShimmerCategoryItems(props: CategoryItemProps) {
             (props.loading && props.children) ?
                 Array.from({ length: props.items! }).map((_,index) => {
                     return <>
-                        <CategoryItemDiv key={index} itemGap={props.itemGap}>
+                        <CategoryItemDiv className={props.className} key={index} itemGap={props.itemGap}>
                             {
                                 props.hasImage &&
-                                <ShimmerDiv mode={props.mode} height={props.imageHeight!} width={props.imageWidth!} rounded={props.imageRounded} from={from} via={via} to={to} />
+                                <ShimmerDiv className={"shimmer-category-items-image "} mode={props.mode} height={props.imageHeight!} width={props.imageWidth!} rounded={props.imageRounded} from={from} via={via} to={to} />
                             }
-                            <CategoryItemDetails contentPosition={props.contentPosition}>
+                            <CategoryItemDetails className="shimmer-category-items-details" contentPosition={props.contentPosition}>
                                 {
                                     props.hasTitle &&
-                                    <ShimmerTitle mode={props.mode} line={1} gap={6} height={13} from={from} via={via} to={to} />
+                                    <ShimmerTitle className={"shimmer-category-items-title-div"} mode={props.mode} line={1} gap={6} height={13} from={from} via={via} to={to} />
                                 }
                                 {
                                     props.hasText &&
-                                    <ShimmerText mode={props.mode} line={3} gap={6} height={5} from={from} via={via} to={to} />
+                                    <ShimmerText className={"shimmer-category-items-text-div"} mode={props.mode} line={3} gap={6} height={5} from={from} via={via} to={to} />
                                 }
 
                                 {
                                     props.hasButton &&
-                                    <ShimmerButton mode={props.mode} size='sm' from={from} via={via} to={to} />
+                                    <ShimmerButton className={"shimmer-category-items-button"} mode={props.mode} size='sm' from={from} via={via} to={to} />
                                 }
                             </CategoryItemDetails>
                         </CategoryItemDiv>
@@ -128,7 +129,8 @@ ShimmerCategoryItems.defaultProps = {
     hasButton: true,
     hasImage: true,
     contentCenter: "start",
-    loading: true
+    loading: true,
+    className:"shimmer-category-items"
 }
 
 const CategoryItemDiv = styled.div<Pick<CategoryItemProps, "itemGap">>`
