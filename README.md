@@ -6,7 +6,6 @@
 [![license](https://img.shields.io/npm/l/shimmer-effects-react)](https://github.com/ranahardik28/shimmer-effects-react/blob/main/LICENSE)
 
 📖 [Live Demo & Docs](https://shimmereffectreact.vercel.app/) · 
-▶ [Open in CodeSandbox](https://codesandbox.io/YOUR_LINK) · 
 🐛 [Report Bug](https://github.com/ranahardik28/shimmer-effects-react/issues)
 
 > ✨ The `shimmer-effects-react` library empowers React developers to effortlessly integrate customizable shimmer effects into their applications. With a versatile set of utilities and components, users can easily create shimmering placeholders for various UI elements, enhancing the user experience during loading states. Whether you're building a sleek loading animation for images, text blocks, or entire sections, this library offers the flexibility and control you need.
